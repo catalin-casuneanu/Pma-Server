@@ -7,6 +7,8 @@ const morgan = require("morgan");
 const {
   GetFranchiseLocations,
   GetFranchiseOwners,
+  seedFranchiseLocations,
+  SeedFranchiseOwners,
 } = require("./services/FranConnectService");
 
 const app = express();
@@ -20,12 +22,12 @@ app.use(cors());
 app.use(morgan("combined"));
 
 app.get("/location", async (req, res) => {
-  locations = await GetFranchiseLocations();
+  locations = await seedFranchiseLocations();
   res.status(200).json({ status: "success", data: { locations } });
 });
 
 app.get("/owner", async (req, res) => {
-  owners = await GetFranchiseOwners();
+  owners = await SeedFranchiseOwners();
   res.status(200).json({ status: "success", data: { owners } });
 });
 
