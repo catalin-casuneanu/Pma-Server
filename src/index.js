@@ -23,12 +23,12 @@ app.use(morgan("combined"));
 
 app.get("/location", async (req, res) => {
   locations = await seedFranchiseLocations();
-  res.status(200).json({ status: "success", data: { locations } });
+  res.status(200).json(locations);
 });
 
 app.get("/owner", async (req, res) => {
   owners = await SeedFranchiseOwners();
-  res.status(200).json({ status: "success", data: { owners } });
+  res.status(200).json(owners);
 });
 
 app.listen(3000, () => {
