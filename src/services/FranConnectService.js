@@ -18,7 +18,7 @@ const GetFranchiseLocations = async () => {
 };
 
 const SeedFranchiseOwners = async () => {
-  const locations = await GetFranchiseOwners();
+  const locations = await seedFranchiseLocations();
 
   OwnerRepository.deleteAll();
 
