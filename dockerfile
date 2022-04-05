@@ -21,8 +21,6 @@ RUN npm install
 
 RUN npx prisma generate
 
-RUN npx prisma migrate dev
-
 # Run and expose the server on port 3000
 EXPOSE 3000
 
